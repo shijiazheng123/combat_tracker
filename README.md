@@ -4,9 +4,9 @@ A simple combat map maker to keep track of DnD combat
 
 This is still in its early stages.
 
+<br />
+<br />
+<b>Current features</b>
 
-
-Current features:
-
-Zoom and Pan Grid
+Zoom and Pan Grid<br />
 Freehand drawing
