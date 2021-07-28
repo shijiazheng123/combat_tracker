@@ -5,6 +5,8 @@ import {server} from "./constants";
 import {socket} from "./constants";
 import {useState} from "react";
 
+import {Provider} from "react-redux";
+import store from "./store";
 
 
 function App() {
@@ -20,9 +22,11 @@ function App() {
 
 
   return (
-    <div className="App">
-        <CombatContainer/>
-    </div>
+    <Provider store={store}>
+        <div className="App">
+            <CombatContainer/>
+        </div>
+    </Provider>
   );
 }
 

@@ -4,12 +4,12 @@ import {startDrawing, drawing, endDrawing} from "./FreehandDrawing";
 
 
 
-export const dragStart = (event, button) => {
+export const dragStart = (event, button, info) => {
     switch (button){
         case "drag":
             break;
         case "pen":
-            startDrawing(event);
+            startDrawing(event, info);
             break;
         default:
             break;
@@ -17,12 +17,12 @@ export const dragStart = (event, button) => {
     }
 }
 
-export const dragging = (event, button) => {
+export const dragging = (event, button, info) => {
     switch (button){
         case "drag":
             break;
         case "pen":
-            drawing(event);
+            drawing(event, info);
             break;
         default:
             break;
@@ -30,12 +30,12 @@ export const dragging = (event, button) => {
     }
 }
 
-export const dragEnd = (event, button) => {
+export const dragEnd = (event, button, info) => {
     switch (button){
         case "drag":
             break;
         case "pen":
-            endDrawing(event);
+            endDrawing(event, info);
             break;
         default:
             break;

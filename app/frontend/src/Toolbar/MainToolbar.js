@@ -5,8 +5,21 @@ import './Toolbar.css';
 
 export function MainToolbar(props){
 
+    //tools to implement:
+    //zoom and pan
+    //move (moves strokes, shapes, and pins)
+    //pen (and color change and stroke change)
+    //shape creator (with color change and resize)
+    //erase (deletes strokes, shapes, pins) with clear all strokes, clear all shapes, clear strokes/shapes, clear all
+    //player and monster pins (with upload custom icon function)
+    //upload image
+
+
     const [button, setButton] = useState("drag");
-    const tools = ["drag", "pen"];
+    const [penColor, setPenColor] = useState("black");
+    const [shapeColor, setShapeColor] = useState("black");
+
+
 
     const buttonClicked = (event) => {
 
@@ -17,7 +30,7 @@ export function MainToolbar(props){
 
     return(
         <div className={"ToolBar"}>
-            {tools.map((item) => (
+            {props.tools.map((item) => (
                 <ToolbarButton id={item} clicked={button} buttonClicked={buttonClicked}/>
             ))}
         </div>

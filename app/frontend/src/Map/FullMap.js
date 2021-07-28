@@ -72,8 +72,8 @@ export function FullMap(props){
             .attr("y", function(d) { return d.y; })
             .attr("width", square)
             .attr("height", square)
-            .style("fill", "#fff")
-            .style("stroke", "#B8A7A4");
+            .style("fill-opacity", "0")
+            .style("stroke", "#fff");
 
     }
 
@@ -84,20 +84,21 @@ export function FullMap(props){
         }
         let svg = d3.select('#grid').style("cursor", cursorIcon[props.button]);
         setZoom(props.button, svg);
+
         svg.select('g').selectAll('.row')
             .on('mousedown', (event) => {
                 setMouseDragging(true);
-                dragStart(event, props.button)
+                dragStart(event, props.button, props.info)
             })
             .on('mousemove', (event) => {
                 if(mouseDragging){
-                    dragging(event, props.button)
+                    dragging(event, props.button, props.info)
                 }
 
             })
             .on('mouseup', (event) => {
                 setMouseDragging(false);
-                dragEnd(event, props.button)
+                dragEnd(event, props.button, props.info)
             });
         // setDrag(props.button, svg);
 
