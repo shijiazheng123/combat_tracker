@@ -9,13 +9,6 @@ const renderPath = d3.line()
 
 export const startDrawing = (event, info) => {
     console.log(info);
-    // d3.select('#grid').select('g').selectAll(".row")
-    //     .append('rect')
-    //     .attr('width', '100px')
-    //     .attr('height', '100px')
-    //     .attr('fill', 'black')
-    //     .attr('x', d3.pointer(event)[0])
-    //     .attr('y', d3.pointer(event)[1])
 
     active_line = d3.select('#grid').select('g').selectAll(".row")
         .append('path')

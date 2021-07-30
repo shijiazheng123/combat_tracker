@@ -7,7 +7,7 @@
 
 .tool-overlay{
     z-index: 1000;
-    background-color: rgba(106, 49, 5, .4);
+    background-color: rgba(106, 49, 5, .6);
     position: absolute;
     align-items: center;
     left: 60px;
@@ -37,6 +37,8 @@
 .divider{
     background-color: white;
     margin: 0 5px;
+    height: 20px;
+    width: 2px;
 }
 
 
@@ -53,3 +55,49 @@
 .selected-color{
     border: white 2px solid;
 }
+
+
+
+.shape-option{
+    border: 0;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    margin: 8px 10px;
+    padding: 0;
+}
+
+.selected-shape{
+    stroke: white;
+    stroke-width: 2px;
+}
+
+.shape{
+    fill: black;
+    fill-opacity: 1;
+}
+
+.shape:hover{
+    stroke: white;
+    stroke-width: 2px;
+}
+
+
+.opacity-option{
+    width: 16px;
+    height: 16px;
+    border-radius: 0 50% 50% 50%;
+    transform: rotate(45deg);
+    margin: 10px 10px 7px;
+    border: 0;
+    background-color: black;
+}
+
+.opacity-option:hover{
+    background-color: darkgray;
+}
+
+.selected-opacity{
+    background-color: white;
+}
+

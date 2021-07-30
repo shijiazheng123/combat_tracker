@@ -16,7 +16,8 @@ export function FullMap(props){
 
     const cursorIcon = {
         "drag": "grab",
-        "pen": "crosshair"
+        "pen": "crosshair",
+        "shape": "crosshair"
     }
 
     const [mouseDragging, setMouseDragging] = useState(false);

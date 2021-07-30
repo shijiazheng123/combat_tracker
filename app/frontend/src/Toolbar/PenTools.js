@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from "react";
-import {MainToolbar} from "./MainToolbar";
+import React from "react";
 import {colors, strokes} from "../UIconstants";
 
 
@@ -13,7 +12,7 @@ export function PenTools(props){
                         id={color} onClick={()=> {props.setColor(color)}}
                         style={{backgroundColor: color}}/>
             ))}
-            <div className={"divider"} style={{height: "20px", width: "2px"}}/>
+            <div className={"divider"}/>
             {strokes.map((stroke) => (
                 <button className={(stroke === props.currentStroke ? " selected-stroke " : "") + "tool-option"}
                         id={"stroke-" + stroke} onClick={() => {props.setStroke(stroke)}}>
