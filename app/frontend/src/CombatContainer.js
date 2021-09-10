@@ -38,12 +38,18 @@ export function CombatContainer(){
         <div className={"background"}/>
         <MainToolbar buttonClick={toolBarButton} tools={tools}/>
 
-        {button === "pen" && <PenTools
-            currentColor={currentColor}
-            currentStroke={currentStroke}
-            setColor={setColor}
-            setStroke={setStroke}
-        />}
+
+
+        {button === "pen" &&
+
+            <PenTools
+                currentColor={currentColor}
+                currentStroke={currentStroke}
+                setColor={setColor}
+                setStroke={setStroke}
+            />
+
+        }
 
         {button === "shape" && <ShapeTools
             currentColor={currentColor}

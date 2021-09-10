@@ -11,7 +11,7 @@ export function FullMap(props){
 
     //background grid creation
 
-    const size = 1800;
+    const size = 2000;
     const square = 30;
 
     const cursorIcon = {
@@ -21,7 +21,6 @@ export function FullMap(props){
     }
 
     const [mouseDragging, setMouseDragging] = useState(false);
-
 
     const gridArr = () => {
 
@@ -78,30 +77,66 @@ export function FullMap(props){
 
     }
 
+    const checkButton = () => {
+        if(props.button === "erase"){
+            d3.selectAll(".drawn")
+                .on("mouseover", (event) => erase(event))
+                .on("mousedown", (event) => erase(event));
+        }
+        else if(props.button === "move"){
+
+        }
+        else{
+            d3.selectAll(".drawn")
+                .on("mouseover", null)
+                .on("mousedown", null);
+        }
+    }
+
+    const erase = (event) => {
+        if(event.which === 1 || event.which === 3){
+            d3.selectAll("." + event.target.className.baseVal.split(" ")[2]).remove()
+        }
+
+    }
+
 
     useEffect(() => {
+        //grid is created if wasn't created before
         if(document.getElementById("grid").innerHTML === ""){
             createGrid(gridArr())
         }
+
+        //see if button is erase or move
+        checkButton();
+
+        //set cursor
         let svg = d3.select('#grid').style("cursor", cursorIcon[props.button]);
+
+        //disable panning when drag button isn't on
         setZoom(props.button, svg);
+
+        let info = props.info;
+
+        //drag event listeners
+
+        const drag = d3.drag();
 
         svg.select('g').selectAll('.row')
             .on('mousedown', (event) => {
                 setMouseDragging(true);
-                dragStart(event, props.button, props.info)
+                dragStart(event, props.button, info)
             })
             .on('mousemove', (event) => {
-                if(mouseDragging){
-                    dragging(event, props.button, props.info)
-                }
-
+                // if(mouseDragging){
+                //
+                // }
+                dragging(event, props.button, info)
             })
             .on('mouseup', (event) => {
                 setMouseDragging(false);
-                dragEnd(event, props.button, props.info)
+                dragEnd(event, props.button, info)
             });
-        // setDrag(props.button, svg);
 
     })
     return(<div id={"grid-container"}>

@@ -16,23 +16,23 @@ export function ShapeTools(props){
             <button className={ "shape-option"}
                     onClick={() => {props.setShape("rect")}}
             >
-                <svg>
+                <svg className={"button-vector"}>
                     <rect x={1} y={1} width={18} height={18} className={(props.currentShape === "rect" ? "selected-shape ": "") + "shape"} />
                 </svg>
             </button>
-
+            <br/>
             <button className={"shape-option"}
                     onClick={() => {props.setShape("circle")}}
             >
-                <svg>
+                <svg className={"button-vector"}>
                     <circle cx={10} cy={10} r={9} className={(props.currentShape === "circle" ? "selected-shape ": "") + "shape"} />
                 </svg>
             </button>
-
+            <br/>
             <button className={"shape-option"}
                     onClick={() => {props.setShape("polygon")}}
             >
-                <svg>
+                <svg className={"button-vector"}>
                     <polygon points={"9,1 1,18 18,18"} className={(props.currentShape === "polygon" ? "selected-shape ": "") + "shape"} />
                 </svg>
             </button>

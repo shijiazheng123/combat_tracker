@@ -2,7 +2,7 @@
     background-color: #6A3005;
     height: 100vh;
     width: 60px;
-    z-index: 1000;
+    z-index: 1001;
 }
 
 .tool-overlay{
@@ -11,9 +11,10 @@
     position: absolute;
     align-items: center;
     left: 60px;
-    top: 15px;
-    display: flex;
+    top: 25%;
     border-radius: 10px;
+    animation-duration: 300ms;
+    animation-name: slide-down;
 }
 
 .tool-option{
@@ -34,11 +35,26 @@
     border: white 2px solid;
 }
 
+.ToolbarButton{
+    border: none;
+    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    color: white;
+}
+
+.tool-image{
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+}
+
 .divider{
     background-color: white;
     margin: 0 5px;
-    height: 20px;
-    width: 2px;
+    height: 2px;
+    width: 30px;
 }
 
 
@@ -65,6 +81,10 @@
     height: 20px;
     margin: 8px 10px;
     padding: 0;
+}
+
+.button-vector{
+    height: 20px;
 }
 
 .selected-shape{
@@ -99,5 +119,36 @@
 
 .selected-opacity{
     background-color: white;
+}
+
+
+/*Animations*/
+
+.overlay-enter {
+    top: 0
+}
+
+.overlay-enter-active {
+    top: 25%;
+    transition: top 1s linear;
+}
+
+.overlay-exit {
+    top: 0
+}
+
+.overlay-exit-active {
+    top: 25%;
+    transition: top 1s linear;
+
+}
+
+@keyframes slide-down {
+    from {
+        left: -10px;
+    }
+    to {
+        left: 60px;
+    }
 }
 

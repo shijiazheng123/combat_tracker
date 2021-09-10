@@ -7,6 +7,12 @@
     stroke-linecap: round;
 }
 
+.invisibleLine{
+    fill: none;
+    stroke: transparent;
+    stroke-width: 15px;
+}
+
 
 #grid-container{
     width:100%;

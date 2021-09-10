@@ -6,6 +6,7 @@ let currentShapeProps = {
     x: null,
     y: null
 }
+let counter = 0;
 
 export const startShape = (event, info) => {
     let mouse = d3.pointer(event);
@@ -20,7 +21,7 @@ export const startShape = (event, info) => {
                 .attr("y", mouse[1])
                 .attr("height", 10)
                 .attr("width", 10)
-                .attr("class", "rect-shape")
+                .attr("class", "drawn drawnShape rect"+counter)
                 .attr("fill", info.color)
                 .attr("opacity", info.opacity ? opacity[1] : opacity[0]);
             break;
@@ -30,7 +31,7 @@ export const startShape = (event, info) => {
                 .attr("cx", mouse[0])
                 .attr("cy", mouse[1])
                 .attr("r", 10)
-                .attr("class", "circle-shape")
+                .attr("class", "drawn drawnShape circ"+counter)
                 .attr("fill", info.color)
                 .attr("opacity", info.opacity ? opacity[1] : opacity[0]);
             break;
@@ -40,13 +41,14 @@ export const startShape = (event, info) => {
                 .attr("points", mouse[0] + "," + mouse[1] + " " +
                     (mouse[0] - 5) + "," + (mouse[1] + 5) + " " +
                     (mouse[0] + 5) + "," + (mouse[1] + 5))
-                .attr("class", "polygon-shape")
+                .attr("class", "drawn drawnShape poly"+counter)
                 .attr("fill", info.color)
                 .attr("opacity", info.opacity ? opacity[1] : opacity[0]);
             break;
         default:
             break;
     }
+    counter += 1;
 
 }
 
